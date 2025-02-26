@@ -1,7 +1,7 @@
 steps:
   - label: ":docker: Build docker image"
-    command: "go build -o ./dist/hello ."
-    artifact_paths: "./dist/hello"
+    command: "cd hello && go build -o ./dist/hello ."
+    artifact_paths: "./hello/dist/hello"
     plugins:
       - docker#v5.12.0:
           image: "golang:1.15"
