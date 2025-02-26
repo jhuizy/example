@@ -5,13 +5,21 @@ steps:
     plugins:
       - docker#v5.12.0:
           image: "golang:1.15"
+  
   - input: ":question: What is your name"
     key: name_input
     fields:
       - text: "Name"
         key: "name"
+
+  - block: ":sunglasses: Do the thing"
+    key: confirm_blocker
+    prompt: "Are you really sure you want to continue?"
+
   - label: ":golang: Run the application"
-    depends_on: name_input 
+    depends_on: 
+      - name_input 
+      - confirm_blocker
     command: ".buildkite/scripts/run.sh"
 
 
