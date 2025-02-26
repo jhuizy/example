@@ -9,6 +9,6 @@ buildkite-agent artifact download "hello/dist/hello" .
 NAME=$(buildkite-agent meta-data get name)
 
 # run the binary
-chmod +x hello
-./hello $NAME
+chmod +x hello/dist/hello
+./hello/dist/hello $NAME
  
