@@ -6,10 +6,13 @@ steps:
       - docker#v5.12.0:
           image: "golang:1.15"
   - input: ":question: What is your name"
+    key: name_input
     fields:
       - text: "Name"
         key: "name"
   - label: ":golang: Run the application"
+    depends_on: name_input 
     command: ".buildkite/scripts/run.sh"
+
 
     
